@@ -1,0 +1,45 @@
+plugins {
+    id "com.jfrog.bintray" version "1.6"
+}
+
+def _grp = "io.github.notsyncing.sms-services"
+def _ver = '0.1.0'
+
+group _grp
+version _ver
+
+project.ext {
+    grp = _grp
+    ver = _ver
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'maven-publish'
+
+    sourceCompatibility = 1.8
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        testCompile group: 'junit', name: 'junit', version: '4.12'
+    }
+
+    task sourceJar(type: Jar) {
+        from sourceSets.main.allJava
+        classifier "sources"
+    }
+
+    task javadocJar(type: Jar, dependsOn: javadoc) {
+        classifier "javadoc"
+        from javadoc.destinationDir
+    }
+
+    uploadArchives {
+        repositories {
+            mavenLocal()
+        }
+    }
+}

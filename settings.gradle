@@ -1,0 +1,4 @@
+rootProject.name = 'sms-services'
+include 'sms-alidayu'
+include 'sms-services-core'
+
