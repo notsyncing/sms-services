@@ -1,9 +1,5 @@
-plugins {
-    id "com.jfrog.bintray" version "1.6"
-}
-
 def _grp = "io.github.notsyncing.sms-services"
-def _ver = '0.1.0'
+def _ver = '0.1.1'
 
 group _grp
 version _ver
