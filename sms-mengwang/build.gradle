@@ -1,0 +1,43 @@
+plugins {
+    id "com.jfrog.bintray" version "1.6"
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId rootProject.ext.grp
+            artifactId 'sms-mengwang'
+            version rootProject.ext.ver
+            from components.java
+
+            artifact sourceJar
+            artifact javadocJar
+        }
+    }
+}
+
+dependencies {
+    compile group: 'commons-logging', name: 'commons-logging', version: '1.2'
+    compile project(":sms-services-core")
+    compile group: 'org.dom4j', name: 'dom4j', version: '2.0.0'
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.3'
+}
+
+bintray {
+    user = System.getenv('BINTRAY_USER')
+    key = System.getenv('BINTRAY_KEY')
+
+    pkg {
+        repo = 'maven'
+        name = 'sms-mengwang'
+        licenses = [ 'GPL-3.0' ]
+        vcsUrl = 'https://github.com/notsyncing/sms-services'
+
+        version {
+            name = rootProject.ext.ver
+            vcsTag = rootProject.ext.ver
+        }
+    }
+
+    publications = [ 'maven' ]
+}
