@@ -53,11 +53,11 @@ class MessageParams {
         this.pszMsg = pszMsg;
     }
 
-    public String getiMobiCount() {
+    public String getIMobiCount() {
         return iMobiCount;
     }
 
-    public void setiMobiCount(String iMobiCount) {
+    public void setIMobiCount(String iMobiCount) {
         this.iMobiCount = iMobiCount;
     }
 
@@ -77,11 +77,11 @@ class MessageParams {
         MsgId = msgId;
     }
 
-    public String getiReqType() {
+    public String getIReqType() {
         return iReqType;
     }
 
-    public void setiReqType(String iReqType) {
+    public void setIReqType(String iReqType) {
         this.iReqType = iReqType;
     }
 

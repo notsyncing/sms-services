@@ -37,7 +37,7 @@ class MengWangSmsClient {
         p.setPassword(apiPassword);
         p.setPszMobis(mobile);
         p.setPszMsg(message);
-        p.setiMobiCount("1");
+        p.setIMobiCount("1");
         p.setPszSubPort(subPort);
         p.setMsgId(userMessageId);
 
